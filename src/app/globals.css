@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 50% 98%;
+    --foreground: 24 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+
+    --primary: 37.7 92.1% 50.2%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 30% 95%;
+    --secondary-foreground: 24 10% 15%;
+
+    --muted: 30 20% 95%;
+    --muted-foreground: 25 10% 45%;
+
+    --accent: 38 92% 95%;
+    --accent-foreground: 30 90% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 90%;
+    --input: 30 20% 90%;
+    --ring: 37.7 92.1% 50.2%;
+
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 24 35% 5%;
+    --foreground: 30 20% 95%;
+
+    --card: 24 35% 6%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 24 35% 6%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 37.7 92.1% 50.2%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 24 25% 15%;
+    --secondary-foreground: 30 20% 95%;
+
+    --muted: 24 20% 15%;
+    --muted-foreground: 30 15% 65%;
+
+    --accent: 38 92% 15%;
+    --accent-foreground: 38 92% 85%;
+
+    --destructive: 0 63% 35%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 24 25% 18%;
+    --input: 24 25% 18%;
+    --ring: 37.7 92.1% 50.2%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  input,
+  textarea {
+    outline: none !important;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
+  }
+
+  /* Universal Thin Scrollbar Standard (Firefox & Standards) */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 116, 139, 0.3) transparent;
+  }
+
+  .dark * {
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+}
+
+/* ==========================================================================
+   UNIVERSAL LIQUID CRYSTAL GLASS SCROLLBAR (CRISP OUTLINES & FROSTED GLASS)
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: #ffffff;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.12), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.5), inset 0 1px 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   LIQUID CRYSTAL GLASSMORPHISM UTILITIES (ZERO SOLID CARDS MANDATE)
+   ========================================================================== */
+
+.glass-shell {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  border-radius: 0.625rem;
+}
+
+.dark .glass-shell {
+  background: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 0.625rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dark .glass-card:hover {
+  background: rgba(15, 23, 42, 0.45);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes meshShift {
+  0% {
+    background-position: 70% 26%, 64% 76%, 24% 74%, 30% 24%, 50% 50%;
+  }
+  50% {
+    background-position: 73% 29%, 61% 73%, 27% 71%, 33% 27%, 50% 50%;
+  }
+  100% {
+    background-position: 70% 26%, 64% 76%, 24% 74%, 30% 24%, 50% 50%;
+  }
+}
+
+.exact-pastel-mesh-bg {
+  position: relative;
+  background-color: #fffaf5;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(249, 115, 22, 0.42) 0%, transparent 52%),
+    radial-gradient(circle at 90% 12%, rgba(245, 158, 11, 0.45) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(234, 88, 12, 0.35) 0%, transparent 48%),
+    radial-gradient(circle at 12% 88%, rgba(251, 146, 60, 0.38) 0%, transparent 52%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.85) 0%, transparent 65%);
+  background-size: 130% 130%;
+  background-position: 70% 26%, 64% 76%, 24% 74%, 30% 24%, 50% 50%;
+  background-attachment: fixed;
+  animation: meshShift 20s ease-in-out infinite;
+}
+
+.dark .exact-pastel-mesh-bg {
+  background-color: #140c06;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(249, 115, 22, 0.34) 0%, transparent 55%),
+    radial-gradient(circle at 90% 12%, rgba(245, 158, 11, 0.28) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(234, 88, 12, 0.30) 0%, transparent 50%),
+    radial-gradient(circle at 12% 88%, rgba(194, 65, 12, 0.28) 0%, transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(254, 215, 170, 0.08) 0%, transparent 65%);
+  background-size: 130% 130%;
+  background-position: 70% 26%, 64% 76%, 24% 74%, 30% 24%, 50% 50%;
+  background-attachment: fixed;
+  animation: meshShift 20s ease-in-out infinite;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print,
+  header,
+  nav,
+  aside,
+  button,
+  .toaster {
+    display: none !important;
+  }
+}
